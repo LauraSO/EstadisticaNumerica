@@ -12,64 +12,54 @@ namespace EstadisticaNumerica
 {
     public partial class FormHome : Form
     {
-        public FormHome()
-        {
-            InitializeComponent();
+
+        /*
+       private void button1_Click(object sender, EventArgs e)
+       {
+
+           /*
+
+           //Recorre las filas..
+           foreach (DataGridViewRow fila in this.dgvTablaNumeros.Rows)
+           {
+               //Accede a la columna que quieras, o las recorres todas con otro foreach...
+               DataGridViewCell columna1 = fila.Cells[0];
+
+
+           }
+
+           lblresultado.Text = dgvTablaNumeros.Rows[0].Cells[0].Value.ToString();
+
           
-        }
-
-        private void label1_Click(object sender, EventArgs e)
+    }
+     */
+        public FormHome(IContainer components, DataGridView dgvTablaNumeros, DateTimePicker dtpkPickerInicial, DateTimePicker dtpkFechaFinal, Label lblFechaInicial, Label lblFechaFinal, Button btnBuscar, Label lblTituloHome, Label lblresultado, DataGridViewTextBoxColumn colID, DataGridViewTextBoxColumn colFecha, DataGridViewTextBoxColumn colNumeros, DataGridViewTextBoxColumn colreset, DataGridView dgvSecuenciaNum, DataGridViewTextBoxColumn iDsn, DataGridViewTextBoxColumn secNum, TextBox tbNum, DateTimePicker dtpkFechaNum, Label lblFechaIngreso, Label lblTituloNuevoNum, Button btnIngresar, Label lblTituloBuscarNum, Button btnReset, Button btnEliminar, Button btnModificar)
         {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-         
-
-
-            //Recorre las filas..
-            foreach (DataGridViewRow fila in this.dgvTablaSecuenciasNum.Rows)
-            {
-                //Accede a la columna que quieras, o las recorres todas con otro foreach...
-                DataGridViewCell columna1 = fila.Cells[0];
-               
-               
-            }
-
-            lblresultado.Text = dgvTablaSecuenciasNum.Rows[0].Cells[0].Value.ToString();
-
-
-        }
-
-        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void FormHome_Load(object sender, EventArgs e)
-        {
-          
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
+            this.components = components;
+            this.dgvTablaNumeros = dgvTablaNumeros;
+            this.dtpkPickerInicial = dtpkPickerInicial;
+            this.dtpkFechaFinal = dtpkFechaFinal;
+            this.lblFechaInicial = lblFechaInicial;
+            this.lblFechaFinal = lblFechaFinal;
+            this.btnBuscar = btnBuscar;
+            this.lblTituloHome = lblTituloHome;
+            this.lblresultado = lblresultado;
+            this.colID = colID;
+            this.colFecha = colFecha;
+            this.colNumeros = colNumeros;
+            this.colreset = colreset;
+            this.dgvSecuenciaNum = dgvSecuenciaNum;
+            IDsn = iDsn;
+            this.secNum = secNum;
+            this.tbNum = tbNum;
+            this.dtpkFechaNum = dtpkFechaNum;
+            this.lblFechaIngreso = lblFechaIngreso;
+            this.lblTituloNuevoNum = lblTituloNuevoNum;
+            this.btnIngresar = btnIngresar;
+            this.lblTituloBuscarNum = lblTituloBuscarNum;
+            this.btnReset = btnReset;
+            this.btnEliminar = btnEliminar;
+            this.btnModificar = btnModificar;
         }
     }
 }
