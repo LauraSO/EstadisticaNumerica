@@ -1,65 +1,127 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace EstadisticaNumerica
 {
     public partial class FormHome : Form
     {
-
-        /*
-       private void button1_Click(object sender, EventArgs e)
-       {
-
-           /*
-
-           //Recorre las filas..
-           foreach (DataGridViewRow fila in this.dgvTablaNumeros.Rows)
-           {
-               //Accede a la columna que quieras, o las recorres todas con otro foreach...
-               DataGridViewCell columna1 = fila.Cells[0];
-
-
-           }
-
-           lblresultado.Text = dgvTablaNumeros.Rows[0].Cells[0].Value.ToString();
-
-          
-    }
-     */
-        public FormHome(IContainer components, DataGridView dgvTablaNumeros, DateTimePicker dtpkPickerInicial, DateTimePicker dtpkFechaFinal, Label lblFechaInicial, Label lblFechaFinal, Button btnBuscar, Label lblTituloHome, Label lblresultado, DataGridViewTextBoxColumn colID, DataGridViewTextBoxColumn colFecha, DataGridViewTextBoxColumn colNumeros, DataGridViewTextBoxColumn colreset, DataGridView dgvSecuenciaNum, DataGridViewTextBoxColumn iDsn, DataGridViewTextBoxColumn secNum, TextBox tbNum, DateTimePicker dtpkFechaNum, Label lblFechaIngreso, Label lblTituloNuevoNum, Button btnIngresar, Label lblTituloBuscarNum, Button btnReset, Button btnEliminar, Button btnModificar)
+        public FormHome()
         {
-            this.components = components;
-            this.dgvTablaNumeros = dgvTablaNumeros;
-            this.dtpkPickerInicial = dtpkPickerInicial;
-            this.dtpkFechaFinal = dtpkFechaFinal;
-            this.lblFechaInicial = lblFechaInicial;
-            this.lblFechaFinal = lblFechaFinal;
-            this.btnBuscar = btnBuscar;
-            this.lblTituloHome = lblTituloHome;
-            this.lblresultado = lblresultado;
-            this.colID = colID;
-            this.colFecha = colFecha;
-            this.colNumeros = colNumeros;
-            this.colreset = colreset;
-            this.dgvSecuenciaNum = dgvSecuenciaNum;
-            IDsn = iDsn;
-            this.secNum = secNum;
-            this.tbNum = tbNum;
-            this.dtpkFechaNum = dtpkFechaNum;
-            this.lblFechaIngreso = lblFechaIngreso;
-            this.lblTituloNuevoNum = lblTituloNuevoNum;
-            this.btnIngresar = btnIngresar;
-            this.lblTituloBuscarNum = lblTituloBuscarNum;
-            this.btnReset = btnReset;
-            this.btnEliminar = btnEliminar;
-            this.btnModificar = btnModificar;
+            InitializeComponent();
+
         }
+
+     
+
+
+        private void FormHome_Load(object sender, EventArgs e)
+        {
+
+            MysqlForm mysqlForm = new MysqlForm();
+            MySqlDataReader reader= mysqlForm.GetDatos();
+            int n ;
+            while (reader.Read())
+            {
+                n = dgvTablaNumeros.Rows.Add();
+                dgvTablaNumeros.Rows[n].Cells[0].Value = reader.GetString(0);
+                dgvTablaNumeros.Rows[n].Cells[1].Value = reader.GetString(1);
+                dgvTablaNumeros.Rows[n].Cells[2].Value = reader.GetString(2);
+
+            }
+            reader.Close();
+       
+
+        
+        }
+
+        private void DgvTablaNumeros_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+
+        private void DgvSecuenciaNum_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void tbNum_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void btnIngresar_Click(object sender, EventArgs e)
+        {
+
+            MysqlForm mysqlForm = new MysqlForm();
+            mysqlForm.AddDato(dtpkFechaNum.Value, Convert.ToInt32(tbNum.Text));
+          
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+
+     /*
+           
+            foreach (DataGridViewRow fila in this.dgvTablaNumeros.Rows)
+            {
+                
+                DataGridViewCell columna1 = fila.Cells[0];
+
+
+            }
+
+            lblresultado.Text = dgvTablaNumeros.Rows[0].Cells[0].Value.ToString();
+     */
+
+        }
+
+
+
+        private void dtpkFechaNum_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtpkFechaInicial_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtpkFechaFinal_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void dgvTablaNumeros_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+
+        private void dgvSecuenciaNum_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
     }
 }

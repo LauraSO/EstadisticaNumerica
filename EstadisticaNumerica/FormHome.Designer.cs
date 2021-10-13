@@ -30,17 +30,17 @@ namespace EstadisticaNumerica
         private void InitializeComponent()
         {
             this.dgvTablaNumeros = new System.Windows.Forms.DataGridView();
-            this.dtpkPickerInicial = new System.Windows.Forms.DateTimePicker();
+            this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNumeros = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colreset = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtpkFechaInicial = new System.Windows.Forms.DateTimePicker();
             this.dtpkFechaFinal = new System.Windows.Forms.DateTimePicker();
             this.lblFechaInicial = new System.Windows.Forms.Label();
             this.lblFechaFinal = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.lblTituloHome = new System.Windows.Forms.Label();
             this.lblresultado = new System.Windows.Forms.Label();
-            this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNumeros = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colreset = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvSecuenciaNum = new System.Windows.Forms.DataGridView();
             this.IDsn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.secNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -70,78 +70,7 @@ namespace EstadisticaNumerica
             this.dgvTablaNumeros.RowTemplate.Height = 25;
             this.dgvTablaNumeros.Size = new System.Drawing.Size(495, 188);
             this.dgvTablaNumeros.TabIndex = 0;
-            this.dgvTablaNumeros.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // dtpkPickerInicial
-            // 
-            this.dtpkPickerInicial.Location = new System.Drawing.Point(414, 407);
-            this.dtpkPickerInicial.Name = "dtpkPickerInicial";
-            this.dtpkPickerInicial.Size = new System.Drawing.Size(164, 23);
-            this.dtpkPickerInicial.TabIndex = 1;
-            this.dtpkPickerInicial.Value = new System.DateTime(2021, 10, 7, 13, 45, 49, 0);
-            this.dtpkPickerInicial.ValueChanged += new System.EventHandler(this.dtPickerInicial_ValueChanged);
-            // 
-            // dtpkFechaFinal
-            // 
-            this.dtpkFechaFinal.Location = new System.Drawing.Point(669, 407);
-            this.dtpkFechaFinal.Name = "dtpkFechaFinal";
-            this.dtpkFechaFinal.Size = new System.Drawing.Size(161, 23);
-            this.dtpkFechaFinal.TabIndex = 2;
-            this.dtpkFechaFinal.ValueChanged += new System.EventHandler(this.dtPickerFinal_ValueChanged);
-            // 
-            // lblFechaInicial
-            // 
-            this.lblFechaInicial.AutoSize = true;
-            this.lblFechaInicial.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblFechaInicial.Location = new System.Drawing.Point(323, 407);
-            this.lblFechaInicial.Name = "lblFechaInicial";
-            this.lblFechaInicial.Size = new System.Drawing.Size(85, 19);
-            this.lblFechaInicial.TabIndex = 3;
-            this.lblFechaInicial.Text = "Fecha Inicial:";
-            this.lblFechaInicial.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // lblFechaFinal
-            // 
-            this.lblFechaFinal.AutoSize = true;
-            this.lblFechaFinal.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblFechaFinal.Location = new System.Drawing.Point(584, 407);
-            this.lblFechaFinal.Name = "lblFechaFinal";
-            this.lblFechaFinal.Size = new System.Drawing.Size(79, 19);
-            this.lblFechaFinal.TabIndex = 4;
-            this.lblFechaFinal.Text = "Fecha Final:";
-            this.lblFechaFinal.Click += new System.EventHandler(this.label2_Click);
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnBuscar.Location = new System.Drawing.Point(839, 406);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(75, 26);
-            this.btnBuscar.TabIndex = 5;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // lblTituloHome
-            // 
-            this.lblTituloHome.AutoSize = true;
-            this.lblTituloHome.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblTituloHome.Location = new System.Drawing.Point(35, 9);
-            this.lblTituloHome.Name = "lblTituloHome";
-            this.lblTituloHome.Size = new System.Drawing.Size(262, 37);
-            this.lblTituloHome.TabIndex = 6;
-            this.lblTituloHome.Text = "Estadistica Numerica";
-            this.lblTituloHome.Click += new System.EventHandler(this.label3_Click);
-            // 
-            // lblresultado
-            // 
-            this.lblresultado.AutoSize = true;
-            this.lblresultado.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblresultado.Location = new System.Drawing.Point(337, 355);
-            this.lblresultado.Name = "lblresultado";
-            this.lblresultado.Size = new System.Drawing.Size(0, 28);
-            this.lblresultado.TabIndex = 7;
-            this.lblresultado.Click += new System.EventHandler(this.label4_Click);
+            this.dgvTablaNumeros.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTablaNumeros_CellContentClick);
             // 
             // colID
             // 
@@ -164,6 +93,73 @@ namespace EstadisticaNumerica
             this.colreset.Name = "colreset";
             this.colreset.Width = 150;
             // 
+            // dtpkFechaInicial
+            // 
+            this.dtpkFechaInicial.Location = new System.Drawing.Point(414, 407);
+            this.dtpkFechaInicial.Name = "dtpkFechaInicial";
+            this.dtpkFechaInicial.Size = new System.Drawing.Size(164, 23);
+            this.dtpkFechaInicial.TabIndex = 1;
+            this.dtpkFechaInicial.Value = new System.DateTime(2021, 10, 7, 13, 45, 49, 0);
+            this.dtpkFechaInicial.ValueChanged += new System.EventHandler(this.dtpkFechaInicial_ValueChanged);
+            // 
+            // dtpkFechaFinal
+            // 
+            this.dtpkFechaFinal.Location = new System.Drawing.Point(669, 407);
+            this.dtpkFechaFinal.Name = "dtpkFechaFinal";
+            this.dtpkFechaFinal.Size = new System.Drawing.Size(161, 23);
+            this.dtpkFechaFinal.TabIndex = 2;
+            this.dtpkFechaFinal.ValueChanged += new System.EventHandler(this.dtpkFechaFinal_ValueChanged);
+            // 
+            // lblFechaInicial
+            // 
+            this.lblFechaInicial.AutoSize = true;
+            this.lblFechaInicial.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblFechaInicial.Location = new System.Drawing.Point(323, 407);
+            this.lblFechaInicial.Name = "lblFechaInicial";
+            this.lblFechaInicial.Size = new System.Drawing.Size(85, 19);
+            this.lblFechaInicial.TabIndex = 3;
+            this.lblFechaInicial.Text = "Fecha Inicial:";
+            // 
+            // lblFechaFinal
+            // 
+            this.lblFechaFinal.AutoSize = true;
+            this.lblFechaFinal.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblFechaFinal.Location = new System.Drawing.Point(584, 407);
+            this.lblFechaFinal.Name = "lblFechaFinal";
+            this.lblFechaFinal.Size = new System.Drawing.Size(79, 19);
+            this.lblFechaFinal.TabIndex = 4;
+            this.lblFechaFinal.Text = "Fecha Final:";
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnBuscar.Location = new System.Drawing.Point(839, 406);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(75, 26);
+            this.btnBuscar.TabIndex = 5;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // lblTituloHome
+            // 
+            this.lblTituloHome.AutoSize = true;
+            this.lblTituloHome.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblTituloHome.Location = new System.Drawing.Point(35, 9);
+            this.lblTituloHome.Name = "lblTituloHome";
+            this.lblTituloHome.Size = new System.Drawing.Size(262, 37);
+            this.lblTituloHome.TabIndex = 6;
+            this.lblTituloHome.Text = "Estadistica Numerica";
+            // 
+            // lblresultado
+            // 
+            this.lblresultado.AutoSize = true;
+            this.lblresultado.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblresultado.Location = new System.Drawing.Point(337, 355);
+            this.lblresultado.Name = "lblresultado";
+            this.lblresultado.Size = new System.Drawing.Size(0, 28);
+            this.lblresultado.TabIndex = 7;
+            // 
             // dgvSecuenciaNum
             // 
             this.dgvSecuenciaNum.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -175,7 +171,7 @@ namespace EstadisticaNumerica
             this.dgvSecuenciaNum.RowTemplate.Height = 25;
             this.dgvSecuenciaNum.Size = new System.Drawing.Size(237, 437);
             this.dgvSecuenciaNum.TabIndex = 10;
-            this.dgvSecuenciaNum.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
+            this.dgvSecuenciaNum.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSecuenciaNum_CellContentClick);
             // 
             // IDsn
             // 
@@ -197,7 +193,7 @@ namespace EstadisticaNumerica
             this.tbNum.PlaceholderText = "Numero ";
             this.tbNum.Size = new System.Drawing.Size(86, 25);
             this.tbNum.TabIndex = 9;
-            this.tbNum.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.tbNum.TextChanged += new System.EventHandler(this.tbNum_TextChanged);
             // 
             // dtpkFechaNum
             // 
@@ -205,7 +201,8 @@ namespace EstadisticaNumerica
             this.dtpkFechaNum.Name = "dtpkFechaNum";
             this.dtpkFechaNum.Size = new System.Drawing.Size(165, 23);
             this.dtpkFechaNum.TabIndex = 11;
-            this.dtpkFechaNum.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            this.dtpkFechaNum.TabStop = false;
+            this.dtpkFechaNum.ValueChanged += new System.EventHandler(this.dtpkFechaNum_ValueChanged);
             // 
             // lblFechaIngreso
             // 
@@ -216,7 +213,6 @@ namespace EstadisticaNumerica
             this.lblFechaIngreso.Size = new System.Drawing.Size(47, 19);
             this.lblFechaIngreso.TabIndex = 12;
             this.lblFechaIngreso.Text = "Fecha:";
-            this.lblFechaIngreso.Click += new System.EventHandler(this.label4_Click_1);
             // 
             // lblTituloNuevoNum
             // 
@@ -227,7 +223,6 @@ namespace EstadisticaNumerica
             this.lblTituloNuevoNum.Size = new System.Drawing.Size(207, 25);
             this.lblTituloNuevoNum.TabIndex = 13;
             this.lblTituloNuevoNum.Text = "Ingresar Nuevo Numero:";
-            this.lblTituloNuevoNum.Click += new System.EventHandler(this.label5_Click);
             // 
             // btnIngresar
             // 
@@ -238,7 +233,7 @@ namespace EstadisticaNumerica
             this.btnIngresar.TabIndex = 14;
             this.btnIngresar.Text = "Ingresar";
             this.btnIngresar.UseVisualStyleBackColor = true;
-            this.btnIngresar.Click += new System.EventHandler(this.button1_Click_1);
+            this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
             // 
             // lblTituloBuscarNum
             // 
@@ -249,7 +244,6 @@ namespace EstadisticaNumerica
             this.lblTituloBuscarNum.Size = new System.Drawing.Size(234, 25);
             this.lblTituloBuscarNum.TabIndex = 15;
             this.lblTituloBuscarNum.Text = "Buscar Numeros Repetidos: ";
-            this.lblTituloBuscarNum.Click += new System.EventHandler(this.label6_Click);
             // 
             // btnReset
             // 
@@ -305,7 +299,7 @@ namespace EstadisticaNumerica
             this.Controls.Add(this.lblFechaFinal);
             this.Controls.Add(this.lblFechaInicial);
             this.Controls.Add(this.dtpkFechaFinal);
-            this.Controls.Add(this.dtpkPickerInicial);
+            this.Controls.Add(this.dtpkFechaInicial);
             this.Controls.Add(this.dgvTablaNumeros);
             this.Name = "FormHome";
             this.Load += new System.EventHandler(this.FormHome_Load);
@@ -319,7 +313,7 @@ namespace EstadisticaNumerica
         #endregion
 
         private System.Windows.Forms.DataGridView dgvTablaNumeros;
-        private System.Windows.Forms.DateTimePicker dtpkPickerInicial;
+        private System.Windows.Forms.DateTimePicker dtpkFechaInicial;
         private System.Windows.Forms.DateTimePicker dtpkFechaFinal;
         private System.Windows.Forms.Label lblFechaInicial;
         private System.Windows.Forms.Label lblFechaFinal;
@@ -342,6 +336,7 @@ namespace EstadisticaNumerica
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }
 
