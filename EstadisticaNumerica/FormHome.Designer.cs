@@ -30,10 +30,6 @@ namespace EstadisticaNumerica
         private void InitializeComponent()
         {
             this.dgvTablaNumeros = new System.Windows.Forms.DataGridView();
-            this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNumeros = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colreset = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtpkFechaInicial = new System.Windows.Forms.DateTimePicker();
             this.dtpkFechaFinal = new System.Windows.Forms.DateTimePicker();
             this.lblFechaInicial = new System.Windows.Forms.Label();
@@ -53,60 +49,41 @@ namespace EstadisticaNumerica
             this.btnReset = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
+            this.dgvTablaResultado = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTablaNumeros)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSecuenciaNum)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTablaResultado)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvTablaNumeros
             // 
             this.dgvTablaNumeros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTablaNumeros.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colID,
-            this.colFecha,
-            this.colNumeros,
-            this.colreset});
-            this.dgvTablaNumeros.Location = new System.Drawing.Point(323, 164);
+            this.dgvTablaNumeros.Location = new System.Drawing.Point(315, 164);
             this.dgvTablaNumeros.Name = "dgvTablaNumeros";
             this.dgvTablaNumeros.RowTemplate.Height = 25;
-            this.dgvTablaNumeros.Size = new System.Drawing.Size(495, 188);
+            this.dgvTablaNumeros.Size = new System.Drawing.Size(448, 188);
             this.dgvTablaNumeros.TabIndex = 0;
             this.dgvTablaNumeros.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTablaNumeros_CellContentClick);
             // 
-            // colID
-            // 
-            this.colID.HeaderText = "ID";
-            this.colID.Name = "colID";
-            // 
-            // colFecha
-            // 
-            this.colFecha.HeaderText = "Fecha";
-            this.colFecha.Name = "colFecha";
-            // 
-            // colNumeros
-            // 
-            this.colNumeros.HeaderText = "Numeros";
-            this.colNumeros.Name = "colNumeros";
-            // 
-            // colreset
-            // 
-            this.colreset.HeaderText = "Cantidad Repeticiones";
-            this.colreset.Name = "colreset";
-            this.colreset.Width = 150;
-            // 
             // dtpkFechaInicial
             // 
-            this.dtpkFechaInicial.Location = new System.Drawing.Point(414, 407);
+            this.dtpkFechaInicial.CalendarFont = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dtpkFechaInicial.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dtpkFechaInicial.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpkFechaInicial.Location = new System.Drawing.Point(406, 407);
             this.dtpkFechaInicial.Name = "dtpkFechaInicial";
-            this.dtpkFechaInicial.Size = new System.Drawing.Size(164, 23);
+            this.dtpkFechaInicial.Size = new System.Drawing.Size(164, 25);
             this.dtpkFechaInicial.TabIndex = 1;
             this.dtpkFechaInicial.Value = new System.DateTime(2021, 10, 7, 13, 45, 49, 0);
             this.dtpkFechaInicial.ValueChanged += new System.EventHandler(this.dtpkFechaInicial_ValueChanged);
             // 
             // dtpkFechaFinal
             // 
-            this.dtpkFechaFinal.Location = new System.Drawing.Point(669, 407);
+            this.dtpkFechaFinal.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dtpkFechaFinal.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpkFechaFinal.Location = new System.Drawing.Point(661, 407);
             this.dtpkFechaFinal.Name = "dtpkFechaFinal";
-            this.dtpkFechaFinal.Size = new System.Drawing.Size(161, 23);
+            this.dtpkFechaFinal.Size = new System.Drawing.Size(161, 25);
             this.dtpkFechaFinal.TabIndex = 2;
             this.dtpkFechaFinal.ValueChanged += new System.EventHandler(this.dtpkFechaFinal_ValueChanged);
             // 
@@ -114,7 +91,7 @@ namespace EstadisticaNumerica
             // 
             this.lblFechaInicial.AutoSize = true;
             this.lblFechaInicial.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblFechaInicial.Location = new System.Drawing.Point(323, 407);
+            this.lblFechaInicial.Location = new System.Drawing.Point(315, 407);
             this.lblFechaInicial.Name = "lblFechaInicial";
             this.lblFechaInicial.Size = new System.Drawing.Size(85, 19);
             this.lblFechaInicial.TabIndex = 3;
@@ -124,7 +101,7 @@ namespace EstadisticaNumerica
             // 
             this.lblFechaFinal.AutoSize = true;
             this.lblFechaFinal.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblFechaFinal.Location = new System.Drawing.Point(584, 407);
+            this.lblFechaFinal.Location = new System.Drawing.Point(576, 407);
             this.lblFechaFinal.Name = "lblFechaFinal";
             this.lblFechaFinal.Size = new System.Drawing.Size(79, 19);
             this.lblFechaFinal.TabIndex = 4;
@@ -133,7 +110,7 @@ namespace EstadisticaNumerica
             // btnBuscar
             // 
             this.btnBuscar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnBuscar.Location = new System.Drawing.Point(839, 406);
+            this.btnBuscar.Location = new System.Drawing.Point(831, 406);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 26);
             this.btnBuscar.TabIndex = 5;
@@ -155,7 +132,7 @@ namespace EstadisticaNumerica
             // 
             this.lblresultado.AutoSize = true;
             this.lblresultado.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblresultado.Location = new System.Drawing.Point(337, 355);
+            this.lblresultado.Location = new System.Drawing.Point(329, 355);
             this.lblresultado.Name = "lblresultado";
             this.lblresultado.Size = new System.Drawing.Size(0, 28);
             this.lblresultado.TabIndex = 7;
@@ -188,7 +165,7 @@ namespace EstadisticaNumerica
             // tbNum
             // 
             this.tbNum.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbNum.Location = new System.Drawing.Point(544, 123);
+            this.tbNum.Location = new System.Drawing.Point(536, 123);
             this.tbNum.Name = "tbNum";
             this.tbNum.PlaceholderText = "Numero ";
             this.tbNum.Size = new System.Drawing.Size(86, 25);
@@ -197,9 +174,14 @@ namespace EstadisticaNumerica
             // 
             // dtpkFechaNum
             // 
-            this.dtpkFechaNum.Location = new System.Drawing.Point(373, 123);
+            this.dtpkFechaNum.CalendarFont = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dtpkFechaNum.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
+            this.dtpkFechaNum.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dtpkFechaNum.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpkFechaNum.Location = new System.Drawing.Point(365, 123);
             this.dtpkFechaNum.Name = "dtpkFechaNum";
-            this.dtpkFechaNum.Size = new System.Drawing.Size(165, 23);
+            this.dtpkFechaNum.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.dtpkFechaNum.Size = new System.Drawing.Size(165, 25);
             this.dtpkFechaNum.TabIndex = 11;
             this.dtpkFechaNum.TabStop = false;
             this.dtpkFechaNum.ValueChanged += new System.EventHandler(this.dtpkFechaNum_ValueChanged);
@@ -208,7 +190,7 @@ namespace EstadisticaNumerica
             // 
             this.lblFechaIngreso.AutoSize = true;
             this.lblFechaIngreso.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblFechaIngreso.Location = new System.Drawing.Point(326, 126);
+            this.lblFechaIngreso.Location = new System.Drawing.Point(318, 126);
             this.lblFechaIngreso.Name = "lblFechaIngreso";
             this.lblFechaIngreso.Size = new System.Drawing.Size(47, 19);
             this.lblFechaIngreso.TabIndex = 12;
@@ -218,7 +200,7 @@ namespace EstadisticaNumerica
             // 
             this.lblTituloNuevoNum.AutoSize = true;
             this.lblTituloNuevoNum.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblTituloNuevoNum.Location = new System.Drawing.Point(323, 76);
+            this.lblTituloNuevoNum.Location = new System.Drawing.Point(315, 76);
             this.lblTituloNuevoNum.Name = "lblTituloNuevoNum";
             this.lblTituloNuevoNum.Size = new System.Drawing.Size(207, 25);
             this.lblTituloNuevoNum.TabIndex = 13;
@@ -227,7 +209,7 @@ namespace EstadisticaNumerica
             // btnIngresar
             // 
             this.btnIngresar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnIngresar.Location = new System.Drawing.Point(636, 121);
+            this.btnIngresar.Location = new System.Drawing.Point(628, 121);
             this.btnIngresar.Name = "btnIngresar";
             this.btnIngresar.Size = new System.Drawing.Size(72, 27);
             this.btnIngresar.TabIndex = 14;
@@ -239,7 +221,7 @@ namespace EstadisticaNumerica
             // 
             this.lblTituloBuscarNum.AutoSize = true;
             this.lblTituloBuscarNum.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblTituloBuscarNum.Location = new System.Drawing.Point(323, 371);
+            this.lblTituloBuscarNum.Location = new System.Drawing.Point(315, 371);
             this.lblTituloBuscarNum.Name = "lblTituloBuscarNum";
             this.lblTituloBuscarNum.Size = new System.Drawing.Size(234, 25);
             this.lblTituloBuscarNum.TabIndex = 15;
@@ -248,7 +230,7 @@ namespace EstadisticaNumerica
             // btnReset
             // 
             this.btnReset.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnReset.Location = new System.Drawing.Point(839, 282);
+            this.btnReset.Location = new System.Drawing.Point(816, 266);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(75, 25);
             this.btnReset.TabIndex = 16;
@@ -259,7 +241,7 @@ namespace EstadisticaNumerica
             // btnEliminar
             // 
             this.btnEliminar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnEliminar.Location = new System.Drawing.Point(839, 250);
+            this.btnEliminar.Location = new System.Drawing.Point(816, 234);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(75, 26);
             this.btnEliminar.TabIndex = 17;
@@ -270,7 +252,7 @@ namespace EstadisticaNumerica
             // btnModificar
             // 
             this.btnModificar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnModificar.Location = new System.Drawing.Point(839, 216);
+            this.btnModificar.Location = new System.Drawing.Point(816, 200);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(75, 28);
             this.btnModificar.TabIndex = 18;
@@ -278,11 +260,21 @@ namespace EstadisticaNumerica
             this.btnModificar.UseVisualStyleBackColor = true;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
+            // dgvTablaResultado
+            // 
+            this.dgvTablaResultado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTablaResultado.Location = new System.Drawing.Point(315, 448);
+            this.dgvTablaResultado.Name = "dgvTablaResultado";
+            this.dgvTablaResultado.RowTemplate.Height = 25;
+            this.dgvTablaResultado.Size = new System.Drawing.Size(448, 115);
+            this.dgvTablaResultado.TabIndex = 19;
+            // 
             // FormHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(953, 566);
+            this.ClientSize = new System.Drawing.Size(953, 633);
+            this.Controls.Add(this.dgvTablaResultado);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnReset);
@@ -305,6 +297,7 @@ namespace EstadisticaNumerica
             this.Load += new System.EventHandler(this.FormHome_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTablaNumeros)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSecuenciaNum)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTablaResultado)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -320,10 +313,6 @@ namespace EstadisticaNumerica
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Label lblTituloHome;
         private System.Windows.Forms.Label lblresultado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colFecha;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNumeros;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colreset;
         private System.Windows.Forms.DataGridView dgvSecuenciaNum;
         private System.Windows.Forms.DataGridViewTextBoxColumn IDsn;
         private System.Windows.Forms.DataGridViewTextBoxColumn secNum;
@@ -337,6 +326,7 @@ namespace EstadisticaNumerica
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.DataGridView dgvTablaResultado;
     }
 }
 

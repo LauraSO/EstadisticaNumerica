@@ -19,17 +19,7 @@ namespace EstadisticaNumerica
         {
 
             MysqlForm mysqlForm = new MysqlForm();
-            MySqlDataReader reader= mysqlForm.GetDatos();
-            int n ;
-            while (reader.Read())
-            {
-                n = dgvTablaNumeros.Rows.Add();
-                dgvTablaNumeros.Rows[n].Cells[0].Value = reader.GetString(0);
-                dgvTablaNumeros.Rows[n].Cells[1].Value = reader.GetString(1);
-                dgvTablaNumeros.Rows[n].Cells[2].Value = reader.GetString(2);
-
-            }
-            reader.Close();
+            mysqlForm.ActualizarDataGrid(dgvTablaNumeros);
        
 
         
@@ -54,10 +44,12 @@ namespace EstadisticaNumerica
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-
+           
             MysqlForm mysqlForm = new MysqlForm();
-            mysqlForm.AddDato(dtpkFechaNum.Value, Convert.ToInt32(tbNum.Text));
-          
+            mysqlForm.AddDato(dtpkFechaNum.Value.Date, Convert.ToInt32(tbNum.Text));
+            mysqlForm.ActualizarDataGrid(dgvTablaNumeros);
+            
+
         }
 
         private void btnReset_Click(object sender, EventArgs e)
@@ -79,18 +71,8 @@ namespace EstadisticaNumerica
         private void btnBuscar_Click(object sender, EventArgs e)
         {
 
-     /*
-           
-            foreach (DataGridViewRow fila in this.dgvTablaNumeros.Rows)
-            {
-                
-                DataGridViewCell columna1 = fila.Cells[0];
-
-
-            }
-
-            lblresultado.Text = dgvTablaNumeros.Rows[0].Cells[0].Value.ToString();
-     */
+            MysqlForm mysqlForm = new MysqlForm();
+            mysqlForm.BuscarGrid(dtpkFechaInicial.Value.Date, dtpkFechaFinal.Value.Date, dgvTablaResultado);
 
         }
 

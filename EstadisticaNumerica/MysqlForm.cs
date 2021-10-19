@@ -118,8 +118,13 @@ namespace EstadisticaNumerica
 
         public void AddDato(DateTime fecha, int numero)
         {
+
+
+            String fechaShort = fecha.ToShortDateString() ;
+            
             MySqlConnection conexionBd = this.Conectar_Bd();
-            string query = "INSERT INTO numeros(`id`, `fecha`, `numero`, `cantidad`) VALUES (NULL"+fecha+","+numero+","+"NULL";
+            string query=$"INSERT INTO numeros(`id`, `fecha`, `numero`) VALUES (NULL, '{fechaShort}', {numero})";
+            //string query = "INSERT INTO numeros(`id`, `fecha`, `numero`) VALUES $(NULL, "+ fecha2[0].'/'. fecha2[1] + ","+ numero + ")";
 
             MySqlCommand comandoBd = new MySqlCommand(query, conexionBd);
             comandoBd.CommandTimeout = 60;
@@ -136,13 +141,48 @@ namespace EstadisticaNumerica
                 MessageBox.Show(ex.Message);
             }
 
-
-         
+            query = "SELECT * FROM numeros";
+           
 
 
         }
 
-       
+
+        public void ActualizarDataGrid(DataGridView grid)
+        {
+            string query = "SELECT * FROM numeros";
+
+            MySqlConnection conexionBd = this.Conectar_Bd();
+            MySqlCommand cmd = new MySqlCommand(query, conexionBd);
+
+            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+            System.Data.DataTable dt = new System.Data.DataTable();
+            da.Fill(dt);
+
+
+            grid.DataSource = dt;
+
+
+        }
+        public void BuscarGrid(DateTime FechaInicial, DateTime FechaFinal, DataGridView grid)
+        {
+            
+            string query = $"SELECT ID, Fecha, Numero FROM numeros WHERE Fecha BETWEEN '{FechaInicial.ToShortDateString()}' and '{FechaFinal.ToShortDateString()}'";
+
+            MySqlConnection conexionBd = this.Conectar_Bd();
+            MySqlCommand cmd = new MySqlCommand(query, conexionBd);
+
+            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+            System.Data.DataTable dt = new System.Data.DataTable();
+            da.Fill(dt);
+
+
+            grid.DataSource = dt;
+
+
+        }
+
+ 
 
     }
 }
