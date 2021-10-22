@@ -38,8 +38,6 @@ namespace EstadisticaNumerica
             this.lblTituloHome = new System.Windows.Forms.Label();
             this.lblresultado = new System.Windows.Forms.Label();
             this.dgvSecuenciaNum = new System.Windows.Forms.DataGridView();
-            this.IDsn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.secNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbNum = new System.Windows.Forms.TextBox();
             this.dtpkFechaNum = new System.Windows.Forms.DateTimePicker();
             this.lblFechaIngreso = new System.Windows.Forms.Label();
@@ -50,6 +48,7 @@ namespace EstadisticaNumerica
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.dgvTablaResultado = new System.Windows.Forms.DataGridView();
+            this.btnModificarSec = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTablaNumeros)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSecuenciaNum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTablaResultado)).BeginInit();
@@ -140,27 +139,12 @@ namespace EstadisticaNumerica
             // dgvSecuenciaNum
             // 
             this.dgvSecuenciaNum.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSecuenciaNum.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.IDsn,
-            this.secNum});
             this.dgvSecuenciaNum.Location = new System.Drawing.Point(35, 76);
             this.dgvSecuenciaNum.Name = "dgvSecuenciaNum";
             this.dgvSecuenciaNum.RowTemplate.Height = 25;
-            this.dgvSecuenciaNum.Size = new System.Drawing.Size(237, 437);
+            this.dgvSecuenciaNum.Size = new System.Drawing.Size(251, 437);
             this.dgvSecuenciaNum.TabIndex = 10;
             this.dgvSecuenciaNum.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSecuenciaNum_CellContentClick);
-            // 
-            // IDsn
-            // 
-            this.IDsn.HeaderText = "ID";
-            this.IDsn.Name = "IDsn";
-            this.IDsn.Width = 50;
-            // 
-            // secNum
-            // 
-            this.secNum.HeaderText = "Secuencia Numerica";
-            this.secNum.Name = "secNum";
-            this.secNum.Width = 140;
             // 
             // tbNum
             // 
@@ -269,11 +253,23 @@ namespace EstadisticaNumerica
             this.dgvTablaResultado.Size = new System.Drawing.Size(448, 115);
             this.dgvTablaResultado.TabIndex = 19;
             // 
+            // btnModificarSec
+            // 
+            this.btnModificarSec.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnModificarSec.Location = new System.Drawing.Point(35, 535);
+            this.btnModificarSec.Name = "btnModificarSec";
+            this.btnModificarSec.Size = new System.Drawing.Size(75, 28);
+            this.btnModificarSec.TabIndex = 20;
+            this.btnModificarSec.Text = "Modificar";
+            this.btnModificarSec.UseVisualStyleBackColor = true;
+            this.btnModificarSec.Click += new System.EventHandler(this.btnModificarSec_Click);
+            // 
             // FormHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(953, 633);
+            this.Controls.Add(this.btnModificarSec);
             this.Controls.Add(this.dgvTablaResultado);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnEliminar);
@@ -314,8 +310,6 @@ namespace EstadisticaNumerica
         private System.Windows.Forms.Label lblTituloHome;
         private System.Windows.Forms.Label lblresultado;
         private System.Windows.Forms.DataGridView dgvSecuenciaNum;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IDsn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn secNum;
         private System.Windows.Forms.TextBox tbNum;
         private System.Windows.Forms.DateTimePicker dtpkFechaNum;
         private System.Windows.Forms.Label lblFechaIngreso;
@@ -327,6 +321,7 @@ namespace EstadisticaNumerica
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dgvTablaResultado;
+        private System.Windows.Forms.Button btnModificarSec;
     }
 }
 

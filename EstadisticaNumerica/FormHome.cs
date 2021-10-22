@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using EstadisticaNumerica.ABM_Numeros;
 
 namespace EstadisticaNumerica
 {
@@ -18,9 +19,11 @@ namespace EstadisticaNumerica
         private void FormHome_Load(object sender, EventArgs e)
         {
 
-            MysqlForm mysqlForm = new MysqlForm();
+            Numeros mysqlForm = new Numeros();
             mysqlForm.ActualizarDataGrid(dgvTablaNumeros);
-       
+
+            Secuencias tablaSecuencias = new Secuencias();
+            tablaSecuencias.ActualizarDataGrid(dgvSecuenciaNum);
 
         
         }
@@ -44,8 +47,8 @@ namespace EstadisticaNumerica
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-           
-            MysqlForm mysqlForm = new MysqlForm();
+
+            Numeros mysqlForm = new Numeros();
             mysqlForm.AddDato(dtpkFechaNum.Value.Date, Convert.ToInt32(tbNum.Text));
             mysqlForm.ActualizarDataGrid(dgvTablaNumeros);
             
@@ -64,14 +67,23 @@ namespace EstadisticaNumerica
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
+            var filaSeleccionada = dgvTablaNumeros.CurrentRow;
 
+            if (filaSeleccionada != null)
+            {
+                int id = Convert.ToInt32(filaSeleccionada.Cells[0].Value);
+                string fecha = Convert.ToString(filaSeleccionada.Cells[1].Value);
+                int numero = Convert.ToInt32(filaSeleccionada.Cells[2].Value);
+                ModificarSecuencia formModificarNUmero = new ModificarNumero(id, fecha, numero, dgvTablaNumeros);
+                formModificarNUmero.Show();
+            }
+            
         }
-
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
 
-            MysqlForm mysqlForm = new MysqlForm();
+            Numeros mysqlForm = new Numeros();
             mysqlForm.BuscarGrid(dtpkFechaInicial.Value.Date, dtpkFechaFinal.Value.Date, dgvTablaResultado);
 
         }
@@ -105,5 +117,18 @@ namespace EstadisticaNumerica
 
         }
 
+        private void btnModificarSec_Click(object sender, EventArgs e)
+        {
+            var filaSeleccionada = dgvSecuenciaNum.CurrentRow;
+
+            if (filaSeleccionada != null)
+            {
+                int id = Convert.ToInt32(filaSeleccionada.Cells[0].Value);
+                string secuenciaNum = Convert.ToString(filaSeleccionada.Cells[1].Value);
+             
+                ModificarSecuencia formModificarNUmero = new ModificarNumero(id, fecha, numero, dgvTablaNumeros);
+                formModificarNUmero.Show();
+            }
+        }
     }
 }
