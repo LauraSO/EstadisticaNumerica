@@ -31,8 +31,7 @@ namespace EstadisticaNumerica.ABM_SecuenciaNumerica
         {
 
 
-            String fechaShort = fecha.ToShortDateString();
-
+          
             MySqlConnection conexionBd = this.mysql.Conectar_Bd();
             string query = $"UPDATE secuencias SET SecuenciaNumerica='{secuencia}' WHERE id={id} ";
          
