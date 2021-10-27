@@ -123,6 +123,16 @@ namespace EstadisticaNumerica.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap find_search_locate_6201 {
+            get {
+                object obj = ResourceManager.GetObject("find_search_locate_6201", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ic_save_black_24dp {
             get {
                 object obj = ResourceManager.GetObject("ic_save_black_24dp", resourceCulture);
@@ -276,6 +286,16 @@ namespace EstadisticaNumerica.Properties {
         internal static System.Drawing.Bitmap save2 {
             get {
                 object obj = ResourceManager.GetObject("save2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap search_locate_find_13974 {
+            get {
+                object obj = ResourceManager.GetObject("search_locate_find_13974", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

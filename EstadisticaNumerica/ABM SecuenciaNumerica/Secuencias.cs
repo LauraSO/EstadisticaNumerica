@@ -70,8 +70,7 @@ namespace EstadisticaNumerica.ABM_SecuenciaNumerica
 
 
         grid.DataSource = dt;
-
-
+        
     }
  
 

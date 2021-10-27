@@ -7,63 +7,60 @@ namespace EstadisticaNumerica
 {
     public partial class FormHome : Form
     {
+
+
+        private Numeros numeros;
+        private Secuencias secuencias;
+
         public FormHome()
         {
             InitializeComponent();
+            this.numeros= new Numeros();
+            this.secuencias = new Secuencias();
+              }
+   
 
+    private void FormHome_ClearDclick(object sender, EventArgs e)
+        {
+
+            tbNum.Clear();
+            dgvSecuenciaNum.ClearSelection();
+            dgvTablaNumeros.ClearSelection();
+            dgvTablaResultado.DataSource = false;
+            dtpkFechaNum.Value = DateTime.Now;
+            dtpkFechaInicial.Value = DateTime.Now;
+            dtpkFechaFinal.Value = DateTime.Now;
+           
         }
-
-     
-
 
         private void FormHome_Load(object sender, EventArgs e)
         {
 
-            Numeros mysqlForm = new Numeros();
-            mysqlForm.ActualizarDataGrid(dgvTablaNumeros);
-
-            Secuencias tablaSecuencias = new Secuencias();
-            tablaSecuencias.ActualizarDataGrid(dgvSecuenciaNum);
+            this.LoadHome();
 
         
         }
 
-        private void DgvTablaNumeros_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
 
+        private void tbNum_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((int)e.KeyChar == (int)Keys.Enter)
+            {
+                this.ingresarNum();
+            }
         }
 
-
-        private void DgvSecuenciaNum_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void tbNum_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+       
 
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-
-            Numeros mysqlForm = new Numeros();
-            mysqlForm.AddDato(dtpkFechaNum.Value.Date, Convert.ToInt32(tbNum.Text));
-            mysqlForm.ActualizarDataGrid(dgvTablaNumeros);
-            
+            this.ingresarNum();
+         
 
         }
 
-        private void btnReset_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnEliminar_Click(object sender, EventArgs e)
-        {
-
-        }
+      
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
@@ -75,7 +72,7 @@ namespace EstadisticaNumerica
                 string fecha = Convert.ToString(filaSeleccionada.Cells[1].Value);
                 int numero = Convert.ToInt32(filaSeleccionada.Cells[2].Value);
                 ModificarNumero formModificarNUmero = new ModificarNumero(id, fecha, numero, dgvTablaNumeros);
-                formModificarNUmero.Show();
+                formModificarNUmero.ShowDialog(this);
             }
             
         }
@@ -90,33 +87,6 @@ namespace EstadisticaNumerica
 
 
 
-        private void dtpkFechaNum_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dtpkFechaInicial_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dtpkFechaFinal_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void dgvTablaNumeros_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-
-        private void dgvSecuenciaNum_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void btnModificarSec_Click(object sender, EventArgs e)
         {
             var filaSeleccionada = dgvSecuenciaNum.CurrentRow;
@@ -127,8 +97,33 @@ namespace EstadisticaNumerica
                 string secuenciaNum = Convert.ToString(filaSeleccionada.Cells[1].Value);
              
                 ModificarSecuencia formModificarSecuencia = new ModificarSecuencia(id, secuenciaNum, dgvSecuenciaNum);
-                formModificarSecuencia.Show();
+             
+               
+                formModificarSecuencia.ShowDialog(this);
             }
         }
+
+    
+        private void ingresarNum()
+        {
+            
+            this.numeros.AddDato(dtpkFechaNum.Value.Date, Convert.ToInt32(tbNum.Text));
+            this.numeros.ActualizarDataGrid(dgvTablaNumeros);
+            tbNum.Clear();
+           //dtpkFechaNum.Value = DateTime.Now;
+
+
+        }
+
+        private void LoadHome()
+        {
+
+            this.numeros.ActualizarDataGrid(dgvTablaNumeros);
+            this.secuencias.ActualizarDataGrid(dgvSecuenciaNum);
+
+
+        }
+
+      
     }
 }

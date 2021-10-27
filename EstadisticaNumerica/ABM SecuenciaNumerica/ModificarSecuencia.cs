@@ -61,11 +61,7 @@ namespace EstadisticaNumerica.ABM_SecuenciaNumerica
             e.Cancel = true;
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-        }
-
+        
         private void btnGuardarSec_Click(object sender, EventArgs e)
         {
             
@@ -74,6 +70,11 @@ namespace EstadisticaNumerica.ABM_SecuenciaNumerica
             mysqlForm.ActualizarDataGrid(this.TablaSecuencias);
             this.Hide();
 
+        }
+
+        private void btnCancelarSec_Click(object sender, EventArgs e)
+        {
+            this.Hide();
         }
     }
 }

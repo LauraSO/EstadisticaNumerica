@@ -87,5 +87,7 @@ namespace EstadisticaNumerica.ABM_Numeros
         {
             this.Hide();
         }
+
+       
     }
 }
