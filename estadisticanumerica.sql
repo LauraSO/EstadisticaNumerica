@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-10-2021 a las 17:57:53
+-- Tiempo de generación: 02-11-2021 a las 15:05:10
 -- Versión del servidor: 10.4.18-MariaDB
 -- Versión de PHP: 8.0.3
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `numeros` (
   `ID` int(11) NOT NULL,
-  `Fecha` varchar(10) NOT NULL,
+  `Fecha` date NOT NULL,
   `Numero` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -38,16 +38,13 @@ CREATE TABLE `numeros` (
 --
 
 INSERT INTO `numeros` (`ID`, `Fecha`, `Numero`) VALUES
-(46, '01/09/2021', 1),
-(47, '10/10/2021', 13),
-(48, '19/10/2021', 55),
-(49, '19/10/2021', 99),
-(50, '04/10/2021', 55),
-(51, '04/10/2021', 42),
-(52, '04/10/2021', 66),
-(53, '01/10/2021', 12),
-(54, '21/10/2021', 55),
-(55, '21/10/2021', 42);
+(90, '2021-10-28', 41),
+(91, '2021-10-29', 40),
+(92, '2021-11-01', 40),
+(93, '2021-11-02', 41),
+(94, '2021-11-01', 50),
+(95, '2021-11-02', 50),
+(96, '2021-10-29', 40);
 
 -- --------------------------------------------------------
 
@@ -71,7 +68,7 @@ INSERT INTO `secuencias` (`id`, `SecuenciaNumerica`) VALUES
 (4, '91-46'),
 (5, '90-45'),
 (6, '89-44'),
-(7, '98-43'),
+(7, '98-41'),
 (8, '97-42'),
 (9, '96-41'),
 (10, '95-40');
@@ -100,7 +97,7 @@ ALTER TABLE `secuencias`
 -- AUTO_INCREMENT de la tabla `numeros`
 --
 ALTER TABLE `numeros`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.Globalization;
 using MySql.Data.MySqlClient;
 using EstadisticaNumerica.ABM_Numeros;
 using EstadisticaNumerica.ABM_SecuenciaNumerica;
@@ -29,7 +30,7 @@ namespace EstadisticaNumerica
             dgvTablaResultado.DataSource = false;
             dtpkFechaNum.Value = DateTime.Now;
             dtpkFechaInicial.Value = DateTime.Now;
-            dtpkFechaFinal.Value = DateTime.Now;
+           dtpkFechaFinal.Value = DateTime.Now;
            
         }
 
@@ -74,15 +75,27 @@ namespace EstadisticaNumerica
                 ModificarNumero formModificarNUmero = new ModificarNumero(id, fecha, numero, dgvTablaNumeros);
                 formModificarNUmero.ShowDialog(this);
             }
-            
+
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+            
+            DateTime fechaInicial = dtpkFechaInicial.Value.Date;
+            DateTime fechaFinal = dtpkFechaFinal.Value.Date;
+           
+            int resultado = DateTime.Compare(fechaInicial,fechaFinal);
 
-            Numeros mysqlForm = new Numeros();
-            mysqlForm.BuscarGrid(dtpkFechaInicial.Value.Date, dtpkFechaFinal.Value.Date, dgvTablaResultado);
+            if (resultado > 0)
+            {
+                MessageBox.Show("La fecha inicial no puede ser mayor que la fecha final");
+            } else{
+               
+                
+             dgvTablaResultado.DataSource = true;
+            this.numeros.BuscarGrid(fechaInicial, fechaFinal, dgvTablaResultado);
 
+        }
         }
 
 
@@ -118,8 +131,8 @@ namespace EstadisticaNumerica
         private void LoadHome()
         {
 
-            this.numeros.ActualizarDataGrid(dgvTablaNumeros);
-            this.secuencias.ActualizarDataGrid(dgvSecuenciaNum);
+          this.numeros.ActualizarDataGrid(dgvTablaNumeros);
+          this.secuencias.ActualizarDataGrid(dgvSecuenciaNum);
 
 
         }

@@ -72,9 +72,9 @@ namespace EstadisticaNumerica
             this.dtpkFechaInicial.CalendarFont = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dtpkFechaInicial.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dtpkFechaInicial.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpkFechaInicial.Location = new System.Drawing.Point(420, 386);
+            this.dtpkFechaInicial.Location = new System.Drawing.Point(420, 384);
             this.dtpkFechaInicial.Name = "dtpkFechaInicial";
-            this.dtpkFechaInicial.Size = new System.Drawing.Size(116, 25);
+            this.dtpkFechaInicial.Size = new System.Drawing.Size(103, 25);
             this.dtpkFechaInicial.TabIndex = 1;
             this.dtpkFechaInicial.Value = new System.DateTime(2021, 10, 27, 0, 0, 0, 0);
             // 
@@ -82,9 +82,9 @@ namespace EstadisticaNumerica
             // 
             this.dtpkFechaFinal.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dtpkFechaFinal.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpkFechaFinal.Location = new System.Drawing.Point(627, 384);
+            this.dtpkFechaFinal.Location = new System.Drawing.Point(614, 386);
             this.dtpkFechaFinal.Name = "dtpkFechaFinal";
-            this.dtpkFechaFinal.Size = new System.Drawing.Size(100, 25);
+            this.dtpkFechaFinal.Size = new System.Drawing.Size(113, 25);
             this.dtpkFechaFinal.TabIndex = 2;
             // 
             // lblFechaInicial
@@ -101,7 +101,7 @@ namespace EstadisticaNumerica
             // 
             this.lblFechaFinal.AutoSize = true;
             this.lblFechaFinal.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblFechaFinal.Location = new System.Drawing.Point(542, 386);
+            this.lblFechaFinal.Location = new System.Drawing.Point(529, 388);
             this.lblFechaFinal.Name = "lblFechaFinal";
             this.lblFechaFinal.Size = new System.Drawing.Size(79, 19);
             this.lblFechaFinal.TabIndex = 4;

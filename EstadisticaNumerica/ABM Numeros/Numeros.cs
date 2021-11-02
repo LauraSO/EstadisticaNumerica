@@ -55,10 +55,10 @@ namespace EstadisticaNumerica.ABM_Numeros
     public void AddDato(DateTime fecha, int numero)
     {
 
+        
+        String fechaShort = fecha.ToString("yyyy-MM-dd");
 
-        String fechaShort = fecha.ToShortDateString();
-
-        MySqlConnection conexionBd = this.mysql.Conectar_Bd();
+            MySqlConnection conexionBd = this.mysql.Conectar_Bd();
         string query = $"INSERT INTO numeros(`id`, `fecha`, `numero`) VALUES (NULL, '{fechaShort}', {numero})";
        
         MySqlCommand comandoBd = new MySqlCommand(query, conexionBd);
@@ -85,7 +85,7 @@ namespace EstadisticaNumerica.ABM_Numeros
         {
 
 
-            String fechaShort = fecha.ToShortDateString();
+            String fechaShort = fecha.ToString("yyyy-MM-dd");
 
             MySqlConnection conexionBd = this.mysql.Conectar_Bd();
             string query = $"UPDATE numeros SET fecha='{fechaShort}', numero={numero} WHERE id={id} ";
@@ -130,15 +130,19 @@ namespace EstadisticaNumerica.ABM_Numeros
     }
     public void BuscarGrid(DateTime FechaInicial, DateTime FechaFinal, DataGridView grid)
     {
+          
+            string fecha1 = FechaInicial.ToString("yyyy-MM-dd");
+            string fecha2 = FechaFinal.ToString("yyyy-MM-dd");
+            
 
-        string query = $"SELECT ID, Fecha, Numero, COUNT(Numero) as Repetidos FROM numeros WHERE Fecha BETWEEN '{FechaInicial.ToShortDateString()}' and '{FechaFinal.ToShortDateString()}' " +
+        string query = $"SELECT ID, Fecha, Numero, COUNT(Numero) as Repetidos FROM numeros WHERE Fecha BETWEEN '{fecha1}' and '{fecha2}' " +
                 $"GROUP BY Numero HAVING COUNT(Numero)>1";
 
         MySqlConnection conexionBd = this.mysql.Conectar_Bd();
         MySqlCommand cmd = new MySqlCommand(query, conexionBd);
 
         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-        System.Data.DataTable dt = new System.Data.DataTable();
+         DataTable dt = new DataTable();
         da.Fill(dt);
 
 
