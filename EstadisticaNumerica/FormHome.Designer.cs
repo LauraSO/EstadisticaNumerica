@@ -213,9 +213,9 @@ namespace EstadisticaNumerica
             this.lblTituloBuscarNum.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblTituloBuscarNum.Location = new System.Drawing.Point(329, 350);
             this.lblTituloBuscarNum.Name = "lblTituloBuscarNum";
-            this.lblTituloBuscarNum.Size = new System.Drawing.Size(234, 25);
+            this.lblTituloBuscarNum.Size = new System.Drawing.Size(162, 25);
             this.lblTituloBuscarNum.TabIndex = 15;
-            this.lblTituloBuscarNum.Text = "Buscar Numeros Repetidos: ";
+            this.lblTituloBuscarNum.Text = "Buscar Secuencias: ";
             // 
             // btnEliminar
             // 
@@ -253,6 +253,7 @@ namespace EstadisticaNumerica
             this.dgvTablaResultado.RowTemplate.Height = 25;
             this.dgvTablaResultado.Size = new System.Drawing.Size(413, 171);
             this.dgvTablaResultado.TabIndex = 19;
+            this.dgvTablaResultado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTablaResultado_CellContentClick);
             // 
             // btnModificarSec
             // 

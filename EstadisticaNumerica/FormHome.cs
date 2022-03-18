@@ -26,7 +26,7 @@ namespace EstadisticaNumerica
 
             tbNum.Clear();
             dgvSecuenciaNum.ClearSelection();
-            dgvTablaNumeros.ClearSelection();
+            dgvTablaNumeros.ClearSelection();  
             dgvTablaResultado.DataSource = false;
             dtpkFechaNum.Value = DateTime.Now;
             dtpkFechaInicial.Value = DateTime.Now;
@@ -45,8 +45,13 @@ namespace EstadisticaNumerica
         private void LoadHome()
         {
 
+           
+
             this.numeros.ActualizarDataGrid(dgvTablaNumeros);
             this.secuencias.ActualizarDataGrid(dgvSecuenciaNum);
+
+            dgvTablaNumeros.Columns["id"].Visible = false;
+           
 
 
         }
@@ -141,8 +146,10 @@ namespace EstadisticaNumerica
                 
              dgvTablaResultado.DataSource = true;
             this.numeros.BuscarGrid(fechaInicial, fechaFinal, dgvTablaResultado);
+                dgvTablaResultado.Columns["id"].Visible = false;
+                
 
-        }
+            }
         }
 
 
@@ -166,12 +173,9 @@ namespace EstadisticaNumerica
             }
         }
 
-    
-       
+        private void dgvTablaResultado_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
-
-    
-
-
+        }
     }
 }

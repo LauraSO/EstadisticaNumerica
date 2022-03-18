@@ -110,7 +110,7 @@ namespace EstadisticaNumerica.ABM_Numeros
 
         public void ActualizarDataGrid(DataGridView grid)
     {
-        string query = "SELECT * FROM numeros";
+        string query = "SELECT * FROM numeros ORDER BY Fecha DESC";
 
         MySqlConnection conexionBd = this.mysql.Conectar_Bd();
         MySqlCommand cmd = new MySqlCommand(query, conexionBd);
@@ -121,9 +121,10 @@ namespace EstadisticaNumerica.ABM_Numeros
 
 
         grid.DataSource = dt;
+            
 
 
-    }
+        }
     public void BuscarGrid(DateTime FechaInicial, DateTime FechaFinal, DataGridView grid)
     {
           
@@ -131,7 +132,7 @@ namespace EstadisticaNumerica.ABM_Numeros
             string fecha2 = FechaFinal.ToString("yyyy-MM-dd");
             
 
-        string query = $"SELECT ID, Fecha, Numero, COUNT(Numero) as Repetidos FROM numeros WHERE Fecha BETWEEN '{fecha1}' and '{fecha2}' " +
+        string query = $"SELECT ID, Fecha, Numero, COUNT(Numero) as Cantidad FROM numeros WHERE Fecha BETWEEN '{fecha1}' and '{fecha2}' " +
                 $"GROUP BY Numero HAVING COUNT(Numero)>1";
 
         MySqlConnection conexionBd = this.mysql.Conectar_Bd();
