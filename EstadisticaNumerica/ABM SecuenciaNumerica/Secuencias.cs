@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
@@ -30,8 +31,6 @@ namespace EstadisticaNumerica.ABM_SecuenciaNumerica
 
         {
 
-
-          
             MySqlConnection conexionBd = this.mysql.Conectar_Bd();
             string query = $"UPDATE secuencias SET SecuenciaNumerica='{secuencia}' WHERE id={id} ";
          
@@ -72,9 +71,39 @@ namespace EstadisticaNumerica.ABM_SecuenciaNumerica
         grid.DataSource = dt;
         
     }
- 
 
 
+        public bool ValidarSecuencia(TextBox tbSecuencia)
+        {
+            bool no_error = true;
+            if (tbSecuencia.Text == string.Empty)
+            {
+                MessageBox.Show("Ingrese una Secuencia");
+                no_error = false;
+            }
+            else
+            {
 
-}
+                try
+                {
+
+                    string[] arrayNum = Regex.Split(tbSecuencia.Text, "-");
+                    int i = Convert.ToInt32(arrayNum[0]);
+                    i = Convert.ToInt32(arrayNum[1]);
+
+
+                }
+                catch
+                {
+                    MessageBox.Show("La Secuencia no es valida");
+                    return false;
+                }
+
+            }
+            return no_error;
+
+        }
+
+
+    }
 }

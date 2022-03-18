@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace EstadisticaNumerica.ABM_SecuenciaNumerica
@@ -64,11 +65,29 @@ namespace EstadisticaNumerica.ABM_SecuenciaNumerica
         
         private void btnGuardarSec_Click(object sender, EventArgs e)
         {
-            
-          Secuencias mysqlForm = new Secuencias();
-            mysqlForm.ModificarDato(this.Id, Convert.ToString(tbSecNumModi.Text));
-            mysqlForm.ActualizarDataGrid(this.TablaSecuencias);
-            this.Hide();
+
+            DialogResult dr = MessageBox.Show("¿Está seguro que desea modificar la secuencia?",
+                    "", MessageBoxButtons.YesNo);
+            switch (dr)
+            {
+                case DialogResult.Yes:
+
+                    Secuencias secuenciaMysql = new Secuencias();
+
+                    if (secuenciaMysql.ValidarSecuencia(tbSecNumModi))
+                    {
+
+                    secuenciaMysql.ModificarDato(this.Id, Convert.ToString(tbSecNumModi.Text));
+                    secuenciaMysql.ActualizarDataGrid(this.TablaSecuencias);
+                    this.Hide();
+                    MessageBox.Show("Secuencia modificada con éxito");
+                    }
+                    break;
+                case DialogResult.No:
+                    break;
+            }
+
+           
 
         }
 
@@ -76,5 +95,10 @@ namespace EstadisticaNumerica.ABM_SecuenciaNumerica
         {
             this.Hide();
         }
+
+
+
+       
+
     }
 }

@@ -45,7 +45,6 @@ namespace EstadisticaNumerica
             this.lblTituloNuevoNum = new System.Windows.Forms.Label();
             this.btnIngresar = new System.Windows.Forms.Button();
             this.lblTituloBuscarNum = new System.Windows.Forms.Label();
-            this.btnReset = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.dgvTablaResultado = new System.Windows.Forms.DataGridView();
@@ -218,34 +217,25 @@ namespace EstadisticaNumerica
             this.lblTituloBuscarNum.TabIndex = 15;
             this.lblTituloBuscarNum.Text = "Buscar Numeros Repetidos: ";
             // 
-            // btnReset
-            // 
-            this.btnReset.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnReset.Location = new System.Drawing.Point(746, 255);
-            this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(100, 33);
-            this.btnReset.TabIndex = 16;
-            this.btnReset.Text = "Resetear";
-            this.btnReset.UseVisualStyleBackColor = true;
-            // 
             // btnEliminar
             // 
             this.btnEliminar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnEliminar.Image = global::EstadisticaNumerica.Properties.Resources.delete;
             this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar.Location = new System.Drawing.Point(746, 211);
+            this.btnEliminar.Location = new System.Drawing.Point(746, 225);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(100, 38);
             this.btnEliminar.TabIndex = 17;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnModificar
             // 
             this.btnModificar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnModificar.Image = global::EstadisticaNumerica.Properties.Resources.modify;
             this.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModificar.Location = new System.Drawing.Point(746, 169);
+            this.btnModificar.Location = new System.Drawing.Point(746, 183);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(100, 36);
             this.btnModificar.TabIndex = 18;
@@ -298,7 +288,6 @@ namespace EstadisticaNumerica
             this.Controls.Add(this.dgvTablaResultado);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnEliminar);
-            this.Controls.Add(this.btnReset);
             this.Controls.Add(this.lblTituloBuscarNum);
             this.Controls.Add(this.btnIngresar);
             this.Controls.Add(this.lblTituloNuevoNum);
@@ -342,7 +331,6 @@ namespace EstadisticaNumerica
         private System.Windows.Forms.Label lblTituloNuevoNum;
         private System.Windows.Forms.Button btnIngresar;
         private System.Windows.Forms.Label lblTituloBuscarNum;
-        private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnModificar;
        private System.Windows.Forms.DataGridView dgvTablaResultado;

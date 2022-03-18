@@ -21,38 +21,9 @@ namespace EstadisticaNumerica.ABM_Numeros
             this.mysql = new Mysql();
         }
 
-        public MySqlDataReader GetDatos()
-    {
-            
-        
-        MySqlConnection conexionBd = this.mysql.Conectar_Bd();
-        string query = "SELECT * FROM numeros";
-        MySqlCommand comandoBd = new MySqlCommand(query, conexionBd);
-        comandoBd.CommandTimeout = 60;
-        MySqlDataReader reader;
+       
 
-
-        // Ejecuta la consultas
-        reader = comandoBd.ExecuteReader();
-
-
-        if (reader.HasRows)
-        {
-            Console.WriteLine("Datos Encontrados");
-
-        }
-        else
-        {
-            Console.WriteLine("No se encontraron datos.");
-        }
-
-
-        return reader;
-
-
-    }
-
-    public void AddDato(DateTime fecha, int numero)
+    public void InsertarNumero(DateTime fecha, int numero)
     {
 
         
@@ -81,7 +52,7 @@ namespace EstadisticaNumerica.ABM_Numeros
 
     }
 
-        public void ModificarDato(int id, DateTime fecha, int numero)
+        public void ModificarNumero(int id, DateTime fecha, int numero)
         {
 
 
@@ -111,6 +82,31 @@ namespace EstadisticaNumerica.ABM_Numeros
 
         }
 
+        public void EliminarNumero(int id)
+        {
+
+            MySqlConnection conexionBd = this.mysql.Conectar_Bd();
+            string query = $"DELETE FROM numeros WHERE id = '{id}'";
+
+            MySqlCommand comandoBd = new MySqlCommand(query, conexionBd);
+            comandoBd.CommandTimeout = 60;
+            MySqlDataReader reader;
+
+            try
+            {
+
+                reader = comandoBd.ExecuteReader();
+                Console.WriteLine("Dato Eliminado con exito");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+
+
+
+        }
 
         public void ActualizarDataGrid(DataGridView grid)
     {
@@ -151,7 +147,34 @@ namespace EstadisticaNumerica.ABM_Numeros
 
     }
 
+        public bool ValidarNumero(TextBox tbNum)
+        {
+            bool no_error = true;
+            if (tbNum.Text == string.Empty)
+            {
+                MessageBox.Show("Ingrese un Número");
+                no_error = false;
+            }
+            else
+            {
+
+                try
+                {
+                    int i = Convert.ToInt32(tbNum.Text);
+
+                }
+                catch
+                {
+                    MessageBox.Show("El numero ingresado no es válido");
+                    return false;
+                }
+
+            }
+            return no_error;
+
+        }
 
 
-}
+
+    }
 }

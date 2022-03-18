@@ -42,12 +42,22 @@ namespace EstadisticaNumerica
         
         }
 
+        private void LoadHome()
+        {
+
+            this.numeros.ActualizarDataGrid(dgvTablaNumeros);
+            this.secuencias.ActualizarDataGrid(dgvSecuenciaNum);
+
+
+        }
+
+
 
         private void tbNum_KeyPress(object sender, KeyPressEventArgs e)
         {
             if ((int)e.KeyChar == (int)Keys.Enter)
             {
-                this.ingresarNum();
+                this.IngresarNum();
             }
         }
 
@@ -56,12 +66,21 @@ namespace EstadisticaNumerica
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            this.ingresarNum();
+            this.IngresarNum();
          
 
         }
 
-      
+        private void IngresarNum()
+        {
+
+            if (this.numeros.ValidarNumero(tbNum))
+            {
+                this.numeros.InsertarNumero(dtpkFechaNum.Value.Date, Convert.ToInt32(tbNum.Text));
+                this.numeros.ActualizarDataGrid(dgvTablaNumeros);
+                tbNum.Clear();
+            }
+        }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
@@ -75,6 +94,34 @@ namespace EstadisticaNumerica
                 ModificarNumero formModificarNUmero = new ModificarNumero(id, fecha, numero, dgvTablaNumeros);
                 formModificarNUmero.ShowDialog(this);
             }
+
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+
+            DialogResult dr = MessageBox.Show("¿Está seguro que desea eliminar el número?",
+                      "", MessageBoxButtons.YesNo);
+            switch (dr)
+            {
+                case DialogResult.Yes:
+
+                    var filaSeleccionada = dgvTablaNumeros.CurrentRow;
+
+                    if (filaSeleccionada != null)
+                    {
+                        int id = Convert.ToInt32(filaSeleccionada.Cells[0].Value);
+
+                        this.numeros.EliminarNumero(id);
+                        this.numeros.ActualizarDataGrid(dgvTablaNumeros);
+                    }
+                    MessageBox.Show("Número eliminado con exito");
+                    break;
+                case DialogResult.No:
+                    break;
+            }
+
+         
 
         }
 
@@ -102,6 +149,9 @@ namespace EstadisticaNumerica
 
         private void btnModificarSec_Click(object sender, EventArgs e)
         {
+
+
+
             var filaSeleccionada = dgvSecuenciaNum.CurrentRow;
 
             if (filaSeleccionada != null)
@@ -117,26 +167,11 @@ namespace EstadisticaNumerica
         }
 
     
-        private void ingresarNum()
-        {
-            
-            this.numeros.AddDato(dtpkFechaNum.Value.Date, Convert.ToInt32(tbNum.Text));
-            this.numeros.ActualizarDataGrid(dgvTablaNumeros);
-            tbNum.Clear();
-           //dtpkFechaNum.Value = DateTime.Now;
+       
 
 
-        }
-
-        private void LoadHome()
-        {
-
-          this.numeros.ActualizarDataGrid(dgvTablaNumeros);
-          this.secuencias.ActualizarDataGrid(dgvSecuenciaNum);
+    
 
 
-        }
-
-      
     }
 }

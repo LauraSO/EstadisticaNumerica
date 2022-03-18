@@ -31,42 +31,33 @@ namespace EstadisticaNumerica.ABM_Numeros
             this.TablaNumeros = tablaNumeros;
             this.Closing += new CancelEventHandler(ModificarNumero_Closing);
         }
-        public void SetFecha(string fecha)
-        {
-            
-            this.Fecha = fecha;
-          
-        }
-
-        public string GetFecha()
-        {
-           
-           return(this.Fecha );
-
-        }
-
-        public void SetNumero(int numero)
-        {
-            
-            this.Numero = numero;
-
-        }
-
-        public int GetNumero()
-        {
-
-            return (this.Numero);
-
-        }
+       
 
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            Numeros mysqlForm = new Numeros();
-            mysqlForm.ModificarDato(this.Id, dtpkFechaNumModi.Value.Date, Convert.ToInt32(tbNumModi.Text));
-            mysqlForm.ActualizarDataGrid(this.TablaNumeros);
-            this.Hide();
 
+            DialogResult dr = MessageBox.Show("¿Está seguro que desea modificar el número?",
+                    "", MessageBoxButtons.YesNo);
+            switch (dr)
+            {
+                case DialogResult.Yes:
+
+                    Numeros numerosMysql = new Numeros();
+
+                    if (numerosMysql.ValidarNumero(tbNumModi))
+                    {
+                    numerosMysql.ModificarNumero(this.Id, dtpkFechaNumModi.Value.Date, Convert.ToInt32(tbNumModi.Text));
+                    numerosMysql.ActualizarDataGrid(this.TablaNumeros);
+                    this.Hide();
+
+                    MessageBox.Show("Número modificado con éxito");
+                    }
+                    break;
+                case DialogResult.No:
+                    break;
+            }
+          
         }
 
         private void ModificarNumero_Load(object sender, EventArgs e)
